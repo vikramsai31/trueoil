@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  car_id: 1
+  service_type: MyString
+  reminder_date: MyString
+  date: MyString
+
+two:
+  user_id: 1
+  car_id: 1
+  service_type: MyString
+  reminder_date: MyString
+  date: MyString

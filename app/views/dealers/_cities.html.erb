@@ -1,0 +1,11 @@
+
+<% if !@cities.nil? %>
+  <%= select_tag(:city,options_for_select(@cities.collect{|u|[u.city,u.city]}),
+				      {class: "span3 input-md main_select", id: "selectcities"})%>
+		<% else %>
+		
+		 <%= select_tag(:city,options_for_select(["Select State First"]),
+				      {prompt: "Select City",class: "span3 input-md main_select", id: "selectcities"})%>
+<% end %>				
+
+				

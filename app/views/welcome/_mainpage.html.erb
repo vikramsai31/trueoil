@@ -1,0 +1,17 @@
+<%= form_tag "/dealers/index",:method => 'post',:id => 'dealer_search' do %>
+				  <div class="control-group">
+				    <div class="controls">
+				    	
+				   <%= select_tag(:state,options_for_select(@states.collect{|u|[u.state,u.state]}),
+				      {prompt: "Select State",class: "span3 input-md main_select",id: "selectstate"})%><br>
+				    
+				    
+				    
+				     	  <%= render :partial => 'dealers/cities'  %>
+      
+        				
+				  </div>
+			
+				<%= submit_tag "Continue",:class=>"btn btn-xlarge btn-purple"%>
+			</div>
+	<% end %>

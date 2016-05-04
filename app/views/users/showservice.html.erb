@@ -1,0 +1,43 @@
+<div class="container">        
+            <div class="row">            
+                <div class="span10">               
+                    <div class="clear-form mailing">
+                    	 <div class="form-heading">
+                                <h3 class="header" style="font-size: 22px;margin-top: 5%"><strong>Subscribe for the coupons</strong></h3>        
+                                <p>Get the freebies from us and latest updates about <strong>TrueOil</strong>! We hate spam as much as you do, trust us we won't give your details away to other people.</p>
+                                <hr class="dotted">   
+                                                   
+                            </div>
+<%= form_tag("/users/addservice/#{current_user.id}",:method=> "post",:id => 'add_service') do %>
+      <%= label :car,"Select Car"%> 
+         <%= select_tag(:car, options_for_select(@cars.collect{|u|[u['car_name'],u['id']]}),
+           {class: "span3 input-md main_select"}) %>
+          <%= label :service_type,"Select Service Type"%> 
+          <%= select_tag(:service_type, options_for_select(@services.collect{|u|[u['service_type'],u['service_type']]}),
+           {class: "span3 input-md main_select"}) %>
+           <%= label :service_date,"Recent Service Date"%> 
+     <%= text_field_tag 'service_date',nil,:class=>'datepicker',:size => 10, :maxlength => 10 %>
+             <%= label :mileage,"Enter your Mileage when service was done"%> 
+             <%= text_field_tag 'mileage'%>     
+           <%= label :car,"Remind me"%> 
+         <%= select_tag(:reminder_date, options_for_select(['6 Months','3 Month','1 Month','2 Weeks']),
+           {class: "span3 input-md main_select"}) %>       
+               
+           <%= submit_tag "Add My Service",:class=>"btn  btn-purple"%>
+                            <% end %>
+                             </div>
+                                  <table>
+                             
+                                
+                                       
+                                 
+                </div>
+         
+    
+            </div>
+        </div>
+        <script>
+      $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>

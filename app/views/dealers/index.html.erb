@@ -1,0 +1,69 @@
+
+<section class="slice"> 	
+	
+        <div class="w-section inverse">
+        			<%= render 'welcome/flat_bar_search'%>
+        			</div>
+        			<% if !current_user.nil? %>
+      <%=link_to "Add/Manage Reminders" ,addreminder_path(current_user.id) %>  	
+      <% else %>
+      		<%=link_to "Add/Manage Reminders" ,new_user_session_path%>
+      		<% end %>
+        		<div class="row">         		
+                  
+            
+            <div id="container" class="container">  
+            <div class="#results-main" class="span8">  
+            	     	
+		<%  @dealers.each do |f| %>
+		
+			<div id="results">
+			<section class="result-part">
+				
+				
+		
+				<p class="short-desc pull-left">
+				<strong><%= f.businessname.capitalize %></strong>	<br>
+		<%= f.address.capitalize %>
+		<br>
+		<%= f.city.capitalize%>, 
+		<%= f.state %> 
+		<%= f.zip %><br>
+		<strong> <abbr title="Phone">Ph:</abbr>
+		<%= number_to_phone(f.phone,area_code: true)%></strong>  
+		</p>
+		
+		<div class="center-block"">
+			
+		<% f.prices.each do |price| %>
+       <h5> <%= price.service_type.capitalize %>:&nbsp
+       	<%=number_to_currency(price.price) %></h5>
+		    <% end %>
+		   </div>
+		   
+		<div class="pull-right">
+		    	
+		    
+		    
+		    </div>
+              </section>	
+              </div>	
+				
+	
+		
+		<% end %>
+		    
+		</div>
+		
+		</div>
+		
+		</div>
+		
+		</div>
+		</div>
+	
+	
+	</section>
+	
+
+

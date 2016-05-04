@@ -1,0 +1,70 @@
+
+
+
+
+ <div class="container">        
+            <div class="row">            
+                <div class="span10">               
+                    <div class="clear-form mailing">
+                    	 <div class="form-heading">
+                                <h3 class="header" style="font-size: 22px;margin-top: 5%"><strong>Subscribe for the coupons</strong></h3>        
+                                <p>Get the freebies from us and latest updates about <strong>TrueOil</strong>! We hate spam as much as you do, trust us we won't give your details away to other people.</p>
+                                <hr class="dotted">   
+                                                   
+                            </div>
+                   <%= form_tag("/users/addcar/#{current_user.id}",:method=> "post",:id => 'add_car') do %>
+         <%= select_tag(:make, options_for_select(@makes['makes'].collect{|u|[u['name'],u['id']]}),
+           {prompt: "Select Make",class: "span3 input-md main_select",id: "selectmake"}) %>
+           
+                              <%= render 'models'%>
+                              <%= render 'years'%>
+                           <%= submit_tag "Add My Car",:class=>"btn  btn-purple"%>
+                            <% end %>
+       
+                                </div>
+                                  <table>
+                                <% @cars.each do |f| %>
+                                <tr>
+                             <td>
+                                <%= f.make %></td>
+                            <td><%= f.model %></td>
+                            <td><%= f.year %></td>
+                                </tr>
+                                <% end %>
+                                </table> 
+                                
+                                       
+                                 
+                </div>
+         
+    
+            </div>
+        </div>
+        
+        
+  
+	<%= link_to "Change your password", edit_user_registration_path %>
+
+<script>
+
+
+
+
+$('#selectmake').change(function () {
+    makeid = $('#selectmake :selected').val();
+    if(makeid == "") makeid="0";
+
+   jQuery.get('users/getmodel/'+makeid, function(data){
+			$("#selectmodel").html(data);
+      	$('#selectmodel').change(function () {
+      	var modelid = $('#selectmodel :selected').val();
+      	jQuery.get('users/getyear/'+modelid+"/"+makeid, function(data){
+      	$("#selectyear").html(data);
+       })
+      })
+	})
+  
+});
+
+
+</script>

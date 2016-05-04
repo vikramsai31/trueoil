@@ -1,0 +1,33 @@
+
+
+        <div class="container">        
+            <div class="row">            
+                <div class="span10">               
+                    <div class="clear-form mailing">        
+                        <%= form_for(@subscription) do |f| %>   
+                                  
+                            <div class="form-heading">
+                                <h3 class="header" style="font-size: 22px;margin-top: 5%"><strong>Subscribe for the coupons</strong></h3>        
+                                <p>Get the freebies from us and latest updates about <strong>TrueOil</strong>! We hate spam as much as you do, trust us we won't give your details away to other people.</p>
+                                <hr class="dotted">                      
+                            </div>  
+                            <div class="span4">
+                            <div class="form-body">
+                                <span class="form-label">Your email address</span>
+                                <%= f.text_field :email,:class=>"input-block-level" %>
+                                
+                                <span class="form-label">Your Name</span>
+                                <%= f.text_field :name,:class=>"input-block-level" %>
+                                <span class="form-label">Your Zip</span>
+                                <%= f.text_field :zip,:class=>"input-block-level" %>
+                            </div>                                 
+                            <div class="form-footer gray">                                                          
+                                <button class="btn btn-large btn-purple btn-block" type="submit">Subscribe</button>  
+                            </div> 
+                            </div>               
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+  

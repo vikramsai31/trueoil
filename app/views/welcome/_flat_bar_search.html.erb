@@ -1,0 +1,26 @@
+<div class="top-search">
+	<div class="container-fluid">
+		<div class="container">	
+			<div class="row span10 center">	
+<%= form_tag "/dealers/index",:method => 'post',:id => 'dealer_search' do %>
+				  
+				  <%= text_field_tag 'zip',nil , maxlength: 5, size: 5,placeholder: "Enter Zip", class: "span2 input-md"%>
+				  
+				    	<b>OR</b>
+				    	 
+				   <%= select_tag(:state,options_for_select(@states.collect{|u|[u.state,u.state]}),
+				      {prompt: "Select State",class: "span3 input-md main_select",id: "selectstate"})%>
+				   
+				     
+				     	  <%= render :partial => 'dealers/cities'  %>
+      
+           				<%= submit_tag "Search",:class=>"btn btn-md btn-purple"%>
+				 
+		
+	
+	<% end %>
+	</div>
+	</div>
+	</div>
+	
+	</div>
